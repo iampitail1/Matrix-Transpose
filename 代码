@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+void transpose(int **arr, int r, int c) {
+    int **newArr = new int*[c];
+    for(int i=0; i<c; i++) {
+        newArr[i] = new int[r];
+        for(int j=0; j<r; j++)
+            newArr[i][j] = arr[j][i];
+    }
+    // 输出转置矩阵
+    for(int i=0; i<c; i++) {
+        for(int j=0; j<r; j++)
+            cout << newArr[i][j] << "\t";
+        cout << endl;
+    }
+    // 释放内存
+    for(int i=0; i<c; i++) delete[] newArr[i];
+    delete[] newArr;
+}
